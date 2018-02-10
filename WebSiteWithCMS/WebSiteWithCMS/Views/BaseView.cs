@@ -18,10 +18,10 @@ namespace WebSiteWithCMS.Views
         private string classNameText = "g-text";
         private DOMElements DomElements { get; set; }
 
-        //public BaseView():base()
-        //{
-
-        //}
+        public BaseView() : base()
+        {
+            
+        }
 
         public string GetPageId()
         {
