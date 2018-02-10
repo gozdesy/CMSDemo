@@ -12,7 +12,7 @@ using WebSiteWithCMS.Models;
 namespace WebSiteWithCMS.Views
 {
     //public abstract class BaseViewT<T> : BaseView
-    public abstract class BaseView<T> : WebViewPage<T>
+    public abstract class BaseViewT<T> : WebViewPage<T>
     {
     //    private string ContentFolder = CMSController.ContentFolder;
     //    private string classNameText = "g-text";
