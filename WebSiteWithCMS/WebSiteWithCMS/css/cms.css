@@ -1,26 +1,90 @@
-﻿.g-text {
-  border: 5px solid blue; }
+﻿.g-edit {
+  border: 5px solid #D499B9;
+  padding: 3px;
+  margin-bottom: 3px; }
 
-.g-edit {
-  border: 5px solid red; }
+.u-hide {
+  display: none !important; }
+
+.u-centralize {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); }
+
+.u-centralize-x {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%); }
+
+.u-bottom-0 {
+  position: absolute;
+  bottom: 0;
+  padding: 1rem; }
 
 .designtoolbar {
-  border: 1px solid gray;
-  margin: 2rem; }
+  padding: 3rem;
+  margin-bottom: 1rem;
+  font-size: 2rem;
+  background-color: #D499B9;
+  position: relative; }
   .designtoolbar #pageid {
     display: none; }
   .designtoolbar__list {
     list-style: none;
-    float: left; }
+    right: 0;
+    padding: 0.5rem;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%); }
     .designtoolbar__list__item {
-      float: left;
-      padding: 1rem; }
-  .designtoolbar__button:link, .designtoolbar__button:visited {
-    text-decoration: none; }
-  .designtoolbar__button:hover {
-    transform: translateY(-10px); }
+      float: left; }
+      .designtoolbar__list__item__link:link, .designtoolbar__list__item__link:visited {
+        display: block;
+        margin-right: 1rem;
+        text-decoration: none;
+        padding: 1rem;
+        color: #9055A2;
+        background-color: #FFFFFF;
+        border-radius: 1rem;
+        box-shadow: #555555 3px 3px; }
+      .designtoolbar__list__item__link:hover {
+        background-color: #9055A2;
+        color: #FFFFFF; }
   .designtoolbar__message {
-    color: green;
-    float: left;
-    padding: 1rem; }
+    color: #FFFFFF;
+    padding: 0.5rem;
+    width: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0; }
+  .designtoolbar__message-box {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: #555555 3px 3px;
+    z-index: 9999;
+    background-color: #D499B9;
+    color: #FFFFFF;
+    border-radius: 1rem;
+    padding: 4rem; }
+    .designtoolbar__message-box__text {
+      padding: 1rem;
+      margin-bottom: 1rem; }
+    .designtoolbar__message-box__link {
+      float: left; }
+      .designtoolbar__message-box__link:link, .designtoolbar__message-box__link:visited {
+        display: block;
+        margin-right: 1rem;
+        text-decoration: none;
+        padding: 1rem;
+        color: #9055A2;
+        background-color: #FFFFFF;
+        border-radius: 1rem;
+        box-shadow: #555555 3px 3px; }
+      .designtoolbar__message-box__link:hover {
+        background-color: #9055A2;
+        color: #FFFFFF; }
 

@@ -45,11 +45,41 @@ var ControllerLayer = (function () {
 
         var saveButton = document.getElementById(UserInterfaceLayer.GetDomIds().saveButton);
         if (saveButton) saveButton.addEventListener("click", save);
+
+        var backButton = document.getElementById(UserInterfaceLayer.GetDomIds().backButton);
+        if (backButton) backButton.addEventListener("click", switchToDisplayMode);
+
+        var YesButton = document.getElementById(UserInterfaceLayer.GetDomIds().messageBoxYesButton);
+        if (YesButton) YesButton.addEventListener("click", reloadPage);
+
+        var NoButton = document.getElementById(UserInterfaceLayer.GetDomIds().messageBoxNoButton);
+        if (NoButton) NoButton.addEventListener("click", hideMessage);
     }
 
     function switchToDesignMode() {
         var textElements = UserInterfaceLayer.GetEditableElements().Text;
         UserInterfaceLayer.OpenEditableElements(textElements, contentChange);
+        UserInterfaceLayer.SwitchMenu();
+    }
+
+    function switchToDisplayMode() {
+        UserInterfaceLayer.SwitchMessageBox();
+
+        //Yes
+        //UserInterfaceLayer.SwitchMenu();
+        //location.reload();
+
+        //No
+        //UserInterfaceLayer.SwitchMessageBox();
+
+    }
+
+    function reloadPage() {
+        location.reload();
+    }
+
+    function hideMessage() {
+        UserInterfaceLayer.SwitchMessageBox();
     }
 
     var contentChange = function (e) {
@@ -85,7 +115,9 @@ var UserInterfaceLayer = (function () {
         Text: {
             SpecifierClass: "g-text",
             EditableClass: "g-edit"
-        }
+        },
+        MenuLink: "designtoolbar__list__item__link",
+        Hide: "u-hide"
     };
 
     var DomIds = {
@@ -93,7 +125,10 @@ var UserInterfaceLayer = (function () {
         editButton: "designtoolbar__list__button--edit",
         saveButton: "designtoolbar__list__button--save",
         backButton: "designtoolbar__list__button--back",
-        message: "designtoolbar__message"
+        message: "designtoolbar__message",
+        messageBox: "designtoolbar__message-box",
+        messageBoxYesButton: "designtoolbar__message-box--yes",
+        messageBoxNoButton: "designtoolbar__message-box--no"
     };
 
     var PageId = document.getElementById(DomIds.pageId).innerText;
@@ -116,6 +151,18 @@ var UserInterfaceLayer = (function () {
                 Elements[i].addEventListener("mouseup", fnContentChange);
                 Elements[i].classList.toggle(classNames.Text.EditableClass);
             }
+        },
+
+        SwitchMenu: function () {
+            var MenuLinks = document.getElementsByClassName(classNames.MenuLink);
+            for (var i = 0; i < MenuLinks.length; i++) {
+                MenuLinks[i].classList.toggle(classNames.Hide);
+            }
+        },
+
+        SwitchMessageBox: function() {
+            var MessageBox = document.getElementById(DomIds.messageBox);
+            MessageBox.classList.toggle(classNames.Hide);
         },
 
         GetDomIds: function () {

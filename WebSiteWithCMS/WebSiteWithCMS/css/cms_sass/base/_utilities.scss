@@ -1,7 +1,32 @@
 ﻿.g-text{
-    border: 5px solid blue;
+    //border: 5px solid blue;
 }
 
 .g-edit {
-    border: 5px solid red;
+    border: 5px solid $color-primary; 
+    padding: 3px;
+    margin-bottom: 3px;
+}
+
+.u-hide{
+    display: none !important;
+}
+
+.u-centralize{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.u-centralize-x {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.u-bottom-0{
+    position:absolute;
+    bottom: 0;
+    padding: 1rem;
 }

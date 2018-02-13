@@ -1,2 +1,56 @@
-﻿body {
+﻿.nav {
+    position: relative;
+    background-color: $color-black;
+    color: $color-white;
+    width: 100%;
+    height: 5vh;
+    &__menu {
+        position: absolute;
+        float: left;
+
+        &__list {
+            list-style: none;
+
+            &__item {
+                float: left;
+
+                &__link {
+                    &:visited, &:link {
+                        text-decoration: none;
+                        color: $color-white;
+                        font-size: 2rem;
+                        padding: 1rem;
+                    }
+
+                    &:hover {
+                        color: pink;
+                    }
+                }
+            }
+        }
+    }
+
+    &__login {
+        float:right;
+        &__list {
+            list-style: none;
+
+            &__item {
+                float: left;
+
+                a {
+                    &:visited, &:link {
+                        text-decoration: none;
+                        color: $color-white;
+                        font-size: 2rem;
+                        padding: 2rem;
+                    }
+
+                    &:hover {
+                        color: pink;
+                    }
+                }
+            }
+        }
+    }
 }

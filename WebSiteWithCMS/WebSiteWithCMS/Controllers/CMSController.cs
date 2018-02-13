@@ -5,7 +5,6 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using WebSiteWithCMS.Models;
-using WebSiteWithCMS.Filters;
 using HtmlAgilityPack;
 
 namespace WebSiteWithCMS.Controllers

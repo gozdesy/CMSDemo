@@ -1,2 +1,35 @@
-﻿body {
+﻿@mixin CentralizeY(){
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+@mixin CentralizeFixed {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@mixin StandartShadow (){
+    box-shadow: $color-grey-dark 3px 3px;
+}
+
+@mixin StandartButton() {
+    &:link,
+    &:visited {
+        display: block;
+        margin-right: 1rem;
+        text-decoration: none;
+        padding: 1rem;
+        color: $color-secondary;
+        background-color: $color-white;
+        border-radius: 1rem;
+        @include StandartShadow();
+    }
+
+    &:hover {
+        background-color: $color-secondary;
+        color: $color-white;
+    }
 }

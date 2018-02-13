@@ -2,5 +2,9 @@
   {
     "outputFile": "css/cms.css",
     "inputFile": "css/cms_sass/main.scss"
+  },
+  {
+    "outputFile": "css/app.css",
+    "inputFile": "css/app_sass/main.scss"
   }
 ]
