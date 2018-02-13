@@ -1,0 +1,26 @@
+﻿.g-text {
+  border: 5px solid blue; }
+
+.g-edit {
+  border: 5px solid red; }
+
+.designtoolbar {
+  border: 1px solid gray;
+  margin: 2rem; }
+  .designtoolbar #pageid {
+    display: none; }
+  .designtoolbar__list {
+    list-style: none;
+    float: left; }
+    .designtoolbar__list__item {
+      float: left;
+      padding: 1rem; }
+  .designtoolbar__button:link, .designtoolbar__button:visited {
+    text-decoration: none; }
+  .designtoolbar__button:hover {
+    transform: translateY(-10px); }
+  .designtoolbar__message {
+    color: green;
+    float: left;
+    padding: 1rem; }
+

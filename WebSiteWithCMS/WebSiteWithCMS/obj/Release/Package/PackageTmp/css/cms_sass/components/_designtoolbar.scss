@@ -1,0 +1,37 @@
+﻿.designtoolbar {
+    border: 1px solid gray;
+    margin: 2rem;
+
+    #pageid {
+        display: none;
+    }
+
+    &__list {
+        list-style: none;
+
+        &__item {
+            float: left;
+            padding: 1rem;
+        }
+
+        float: left;
+    }
+
+
+
+    &__button {
+        &:link, &:visited {
+            text-decoration: none;
+        }
+
+        &:hover {
+            transform: translateY(-10px);
+        }
+    }
+
+    &__message {
+        color: green;
+        float: left;
+        padding: 1rem;
+    }
+}

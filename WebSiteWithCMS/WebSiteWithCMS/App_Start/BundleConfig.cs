@@ -26,12 +26,13 @@ namespace WebSiteWithCMS
             bundles.Add(new ScriptBundle("~/bundles/cms").Include(
                       "~/Scripts/cms.js"));
 
-            bundles.Add(new StyleBundle("~/css").Include(
-                      //"~/css/bootstrap.css",
-                      //"~/css/site.css",
+            bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/css/app.css",
                       "~/css/cms.css"
                       ));
+
+            //"~/css/bootstrap.css",
+            //"~/css/site.css",
         }
     }
 }

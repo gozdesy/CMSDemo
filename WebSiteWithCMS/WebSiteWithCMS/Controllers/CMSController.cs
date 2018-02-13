@@ -6,12 +6,15 @@ using System.Web;
 using System.Web.Mvc;
 using WebSiteWithCMS.Models;
 using WebSiteWithCMS.Filters;
+using HtmlAgilityPack;
 
 namespace WebSiteWithCMS.Controllers
 {
     public class CMSController : Controller
     {
         public static string ContentFolder = "WebContentData";
+        private static string classNameText = "g-text";
+        private static DOMElements DomElements { get; set; }
 
         //SAVE JSON FILE
         [HttpPost]
@@ -51,14 +54,6 @@ namespace WebSiteWithCMS.Controllers
                     string jsonString = Newtonsoft.Json.JsonConvert.SerializeObject(domElements);
                     System.IO.File.WriteAllText(fileName, jsonString);                   
 
-                    //input.Seek(0, SeekOrigin.Begin);
-                    //using (Stream output = new FileStream(fileName, FileMode.Create))
-                    //{
-                    //var bytes = new byte[8092];
-                    //int dataRead;
-                    //while ((dataRead = input.Read(bytes, 0, bytes.Length)) > 0)
-                    //    output.Write(bytes, 0, dataRead);
-
                     return Content("Saved successfully.");
                 }
             
@@ -75,7 +70,7 @@ namespace WebSiteWithCMS.Controllers
             return new DOMElements();
         }
 
-        public static DOMElements GetDOMElementsFromFile(string fileName)
+        private static DOMElements GetDOMElementsFromFile(string fileName)
         {
             DOMElements domElements = new DOMElements();
             if (!new FileInfo(fileName).Exists) return domElements;
@@ -86,6 +81,43 @@ namespace WebSiteWithCMS.Controllers
                 domElements = Newtonsoft.Json.JsonConvert.DeserializeObject<DOMElements>(dataJSON);
             }
             return domElements;
+        }
+
+        public static string GetUpdatedHTML(string html, string AppPath, string PageId)
+        {
+            string fileName = AppPath + "/" + ContentFolder + "/" + PageId + ".json";
+            DomElements = GetDOMElementsFromFile(fileName);
+            var doc = new HtmlDocument();
+            doc.LoadHtml(html);
+            var htmlNodes = doc.DocumentNode.SelectNodes("//*[contains(@class, '" + classNameText + "')]");
+
+            if (htmlNodes != null)
+            {
+                foreach (var node in htmlNodes)
+                {
+                    node.InnerHtml = GetContent(node.Id, node.InnerText);
+                }
+            }
+
+            return doc.DocumentNode.OuterHtml;
+        }
+
+        private static string GetContent(string Id, string Content)
+        {
+            try
+            {
+                if (DomElements != null && DomElements.Elements.Count > 0)
+                {
+                    Element el = DomElements.Elements.Single(item => item.id == Id);
+                    return el.content;
+                }
+            }
+            catch (Exception)
+            {
+                return Content;
+            }
+
+            return Content;
         }
 
     }

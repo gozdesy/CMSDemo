@@ -9,7 +9,7 @@ namespace WebSiteWithCMS.Controllers
 {
     public class HomeController : Controller
     {
-        [CMSActionFilter]
+        //[CMSActionFilter]
         public ActionResult Index()
         {
             return View();
