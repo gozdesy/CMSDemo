@@ -1,0 +1,61 @@
+﻿.nav {
+    position: relative;
+    background-color: $color-primary;
+    color: $color-white;
+    width: 100%;
+    height: 5vh;
+    font-size: 1.6rem;
+    font-weight: 600;
+    padding: 2.5rem;
+
+    &__menu {
+        @include CentralizeY();
+        left: 0;
+
+        &__list {
+            list-style: none;
+
+            &__item {
+                float: left;
+
+                &__link {
+                    &:visited, &:link {
+                        text-decoration: none;
+                        color: $color-white;
+                        padding: 1rem;
+                    }
+
+                    &:hover {
+                        color: $color-dark;
+                    }
+                }
+            }
+        }
+    }
+
+    &__login {
+        @include CentralizeY();
+        right: 0;
+
+        &__list {
+            list-style: none;
+            margin-right: 1rem;
+
+            &__item {
+                float: left;
+
+                a {
+                    &:visited, &:link {
+                        text-decoration: none;
+                        color: $color-white;
+                        padding: 1rem;
+                    }
+
+                    &:hover {
+                        color: $color-dark;
+                    }
+                }
+            }
+        }
+    }
+}
