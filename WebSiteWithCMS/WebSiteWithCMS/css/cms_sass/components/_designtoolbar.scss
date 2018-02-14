@@ -1,7 +1,8 @@
 ﻿.designtoolbar {
-    padding: 3rem;
-    margin-bottom: 1rem;
-    font-size: 2rem;
+    height: 5vh;
+    padding: 2.5rem;
+    font-size: 1.6rem;
+    font-weight: 600;
     background-color: $color-primary;
     position: relative;
 
@@ -20,13 +21,14 @@
 
             &__link {
                 @include StandartButton();
+                margin-right: 1rem;
             }
         }
     }
 
     &__message {
         color: $color-white;
-        padding: 0.5rem;
+        padding: 1rem;
         width: 50%;
         @include CentralizeY();
         left: 0;
@@ -49,6 +51,7 @@
         &__link {
             @include StandartButton();
             float: left;
+            margin-right: 1rem;
         }
     }
 }

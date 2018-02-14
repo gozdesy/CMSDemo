@@ -1,2 +1,10 @@
-﻿body {
+﻿.heading {
+    &--secondary{
+        padding: 2rem;
+        font-size: 2rem;
+        background-color: rgba($color-primary, .8);
+        color: $color-white;
+        text-align: center;
+        border-radius: 1rem;
+    }
 }

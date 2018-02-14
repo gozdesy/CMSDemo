@@ -209,6 +209,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="css\app.css" />
+    <Content Include="css\app.min.css">
+      <DependentUpon>app.css</DependentUpon>
+    </Content>
+    <None Include="css\app_sass\components\_demo-1.scss" />
     <Content Include="css\app_sass\main.css">
       <DependentUpon>main.scss</DependentUpon>
     </Content>
@@ -240,13 +244,17 @@
     <Content Include="css\app_sass\base\_base.scss" />
     <Content Include="css\app_sass\base\_typography.scss" />
     <Content Include="css\app_sass\base\_utilities.scss" />
-    <Content Include="css\app_sass\layout\navigation.scss" />
+    <Content Include="css\app_sass\layout\_navigation.scss" />
     <Content Include="css\app_sass\main.scss" />
     <None Include="compilerconfig.json" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
     </None>
+    <Content Include="css\app_sass\layout\_header.scss" />
+    <Content Include="css\app_sass\layout\_footer.scss" />
+    <Content Include="css\app_sass\pages\_contact.scss" />
     <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
+    <Content Include="img\img-001.jpg" />
     <Content Include="Scripts\cms.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">

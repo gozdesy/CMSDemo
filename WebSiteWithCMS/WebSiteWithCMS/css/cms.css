@@ -1,5 +1,21 @@
-﻿.g-edit {
-  border: 5px solid #D499B9;
+﻿*, *:after, *:before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; }
+
+html {
+  font-size: 62.5%; }
+
+body {
+  box-sizing: border-box;
+  font-family: Helvetica, Arial, sans-serif; }
+
+/*::selection {
+    color: $color-white;
+    background-color: $color-primary;
+}*/
+.g-edit {
+  outline: 5px solid yellow;
   padding: 3px;
   margin-bottom: 3px; }
 
@@ -23,9 +39,10 @@
   padding: 1rem; }
 
 .designtoolbar {
-  padding: 3rem;
-  margin-bottom: 1rem;
-  font-size: 2rem;
+  height: 5vh;
+  padding: 2.5rem;
+  font-size: 1.6rem;
+  font-weight: 600;
   background-color: #D499B9;
   position: relative; }
   .designtoolbar #pageid {
@@ -39,21 +56,22 @@
     transform: translateY(-50%); }
     .designtoolbar__list__item {
       float: left; }
-      .designtoolbar__list__item__link:link, .designtoolbar__list__item__link:visited {
-        display: block;
-        margin-right: 1rem;
-        text-decoration: none;
-        padding: 1rem;
-        color: #9055A2;
-        background-color: #FFFFFF;
-        border-radius: 1rem;
-        box-shadow: #555555 3px 3px; }
-      .designtoolbar__list__item__link:hover {
-        background-color: #9055A2;
-        color: #FFFFFF; }
+      .designtoolbar__list__item__link {
+        margin-right: 1rem; }
+        .designtoolbar__list__item__link:link, .designtoolbar__list__item__link:visited {
+          display: inline-block;
+          text-decoration: none;
+          padding: .8rem 1.2rem;
+          color: #9055A2;
+          background-color: #FFFFFF;
+          border-radius: 1rem;
+          box-shadow: #555555 3px 3px; }
+        .designtoolbar__list__item__link:hover {
+          background-color: #9055A2;
+          color: #FFFFFF; }
   .designtoolbar__message {
     color: #FFFFFF;
-    padding: 0.5rem;
+    padding: 1rem;
     width: 50%;
     position: absolute;
     top: 50%;
@@ -74,12 +92,12 @@
       padding: 1rem;
       margin-bottom: 1rem; }
     .designtoolbar__message-box__link {
-      float: left; }
+      float: left;
+      margin-right: 1rem; }
       .designtoolbar__message-box__link:link, .designtoolbar__message-box__link:visited {
-        display: block;
-        margin-right: 1rem;
+        display: inline-block;
         text-decoration: none;
-        padding: 1rem;
+        padding: .8rem 1.2rem;
         color: #9055A2;
         background-color: #FFFFFF;
         border-radius: 1rem;

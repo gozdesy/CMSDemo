@@ -11,6 +11,8 @@ html{
 body {
     box-sizing: border-box;
     font-family: Helvetica, Arial, sans-serif;
+    position:relative;
+    min-height: 100vh;
 }
 
 ::selection{

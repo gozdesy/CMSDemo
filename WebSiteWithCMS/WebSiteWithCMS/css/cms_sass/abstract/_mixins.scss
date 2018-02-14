@@ -18,10 +18,9 @@
 @mixin StandartButton() {
     &:link,
     &:visited {
-        display: block;
-        margin-right: 1rem;
+        display: inline-block;
         text-decoration: none;
-        padding: 1rem;
+        padding: .8rem 1.2rem;
         color: $color-secondary;
         background-color: $color-white;
         border-radius: 1rem;
