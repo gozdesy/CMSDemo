@@ -4,42 +4,33 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sample CMS</title>
-    @Styles.Render("~/css")
-    @*@Scripts.Render("~/bundles/modernizr")*@
-
+    @Styles.Render("~/Content/css") 
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
-    @Html.Partial("_DesignToolbar")
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+    <div style="position:sticky; top:0;z-index:9999; width:100%; height:100%;">
+        @Html.Partial("_DesignToolbar")
+        <div class="nav">
+            <div class="nav__menu">
+                <ul class="nav__menu__list">
+                    <li id="nav-home" class="nav__menu__list__item">@Html.ActionLink("Home", "Index", "Home", routeValues: null, htmlAttributes: new { @class = "nav__menu__list__item__link" })</li>
+                    <li id="nav-home" class="nav__menu__list__item">@Html.ActionLink("Demo#1", "Demo1", "Home", routeValues: null, htmlAttributes: new { @class = "nav__menu__list__item__link" })</li>
+                    @*<li class="nav__menu__list__item"> <a href="#demo-1" class="nav__menu__list__item__link">Demo#1</a></li>*@
+                    <li class="nav__menu__list__item">@Html.ActionLink("Contact", "Contact", "Home", routeValues: null, htmlAttributes: new { @class = "nav__menu__list__item__link" })</li>
                 </ul>
+            </div>
+            <div class="nav__login">
                 @Html.Partial("_LoginPartial")
             </div>
         </div>
     </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
-    </div>
-    
-    @*@Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")*@
+
+    @RenderBody()
+
+    <footer class="footer">
+        <p class="footer__text">&copy; @DateTime.Now.Year by gozde</p>
+    </footer>
+ 
     @Scripts.Render("~/bundles/cms")
     @RenderSection("scripts", required: false)
 </body>

@@ -255,7 +255,9 @@
     <Content Include="css\app_sass\pages\_contact.scss" />
     <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
     <Content Include="img\img-001.jpg" />
+    <Content Include="img\img-002.jpg" />
     <Content Include="Scripts\cms.js" />
+    <Content Include="Scripts\file-operations.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -291,6 +293,7 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_DesignToolbar.cshtml" />
+    <Content Include="Views\Home\Demo1.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

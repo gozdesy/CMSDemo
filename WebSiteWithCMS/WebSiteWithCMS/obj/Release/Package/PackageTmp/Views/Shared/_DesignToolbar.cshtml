@@ -1,12 +1,32 @@
-﻿@inherits WebSiteWithCMS.Views.BaseView
-
-<div class="designtoolbar">
+﻿<div class="designtoolbar">
     <div id="pageid">@GetPageId()</div>
 
-    <ol class="designtoolbar__list">
-        <li class="designtoolbar__list__item"><a id="designtoolbar__list__button--edit" class="designtoolbar__list__button">Edit</a></li>
-        <li class="designtoolbar__list__item"><a id="designtoolbar__list__button--save" class="designtoolbar__list__button">Save</a></li>
-        <li class="designtoolbar__list__item"><a id="designtoolbar__list__button--back" class="designtoolbar__list__button">Back</a></li>
-    </ol>
     <div id="designtoolbar__message" class="designtoolbar__message">No changes yet.</div>
+
+    <ul class="designtoolbar__list">
+        <li class="designtoolbar__list__item"><a href="#demo-1" id="designtoolbar__list__button--edit" class="designtoolbar__list__item__link">Edit</a></li>
+        <li class="designtoolbar__list__item"><a href="#null" id="designtoolbar__list__button--save" class="designtoolbar__list__item__link u-hide">Save</a></li>
+        <li class="designtoolbar__list__item"><a href="#null" id="designtoolbar__list__button--back" class="designtoolbar__list__item__link u-hide">Back</a></li>
+    </ul>
+    
+    <div id="designtoolbar__message-box" class="designtoolbar__message-box u-hide">
+        <p class="designtoolbar__message-box__text">If you continue, your changes will be lost. Want to continue?</p>
+        <div class="u-centralize-x u-bottom-0">
+            <a href="#" id="designtoolbar__message-box--yes" class="designtoolbar__message-box__link">Yes</a>
+            <a href="#" id="designtoolbar__message-box--no" class="designtoolbar__message-box__link">No</a>
+        </div>
+    </div>
 </div>
+
+<div id="edit_button_template" class="edit_button_template u-hide">
+    <div class="edit_button_template__filecontainer edit_button_template__link">
+        <i class="material-icons edit_button_template__link__icon">add_a_photo</i>
+        <input type="file" id="edit_button_template__file" accept="image/*" class="edit_button_template__filecontainer__input" />
+        
+    </div>
+    <div class="edit_button_template__link" id="edit_button_template__link--undo" style="display:none;">
+        <i class="material-icons edit_button_template__link__icon">undo</i>
+    </div>
+   
+</div>
+

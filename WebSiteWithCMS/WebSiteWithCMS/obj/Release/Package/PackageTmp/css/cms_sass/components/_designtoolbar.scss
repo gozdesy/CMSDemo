@@ -1,6 +1,10 @@
 ﻿.designtoolbar {
-    border: 1px solid gray;
-    margin: 2rem;
+    height: 5vh;
+    padding: 2.5rem;
+    font-size: 1.6rem;
+    font-weight: 600;
+    background-color: $color-primary;
+    position: relative;
 
     #pageid {
         display: none;
@@ -8,30 +12,46 @@
 
     &__list {
         list-style: none;
+        right: 0;
+        padding: 0.5rem;
+        @include CentralizeY();
 
         &__item {
             float: left;
-            padding: 1rem;
-        }
 
-        float: left;
-    }
-
-
-
-    &__button {
-        &:link, &:visited {
-            text-decoration: none;
-        }
-
-        &:hover {
-            transform: translateY(-10px);
+            &__link {
+                @include StandartButton();
+                margin-right: 1rem;
+            }
         }
     }
 
     &__message {
-        color: green;
-        float: left;
+        color: $color-white;
         padding: 1rem;
+        width: 50%;
+        @include CentralizeY();
+        left: 0;
+    }
+
+    &__message-box {
+        @include CentralizeFixed();
+        @include StandartShadow();
+        z-index: 9999;
+        background-color: $color-primary;
+        color: $color-white;
+        border-radius: 1rem;
+        padding: 4rem;
+
+        &__text {
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        &__link {
+            @include StandartButton();
+            float: left;
+            margin-right: 1rem;
+        }
     }
 }

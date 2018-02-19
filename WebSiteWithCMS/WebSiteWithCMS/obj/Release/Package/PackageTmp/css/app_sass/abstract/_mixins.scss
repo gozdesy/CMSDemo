@@ -1,2 +1,47 @@
-﻿body {
+﻿@mixin CentralizeXY() {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@mixin CentralizeY() {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+@mixin CentralizeX() {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+@mixin CentralizeFixed {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@mixin StandartShadow () {
+    box-shadow: $color-primary 3px 3px;
+}
+
+@mixin StandartButton() {
+    &:link,
+    &:visited {
+        display: inline-block;
+        text-decoration: none;
+        padding: .8rem 1.2rem;
+        color: $color-light;
+        background-color: $color-dark;
+        border-radius: 1rem;
+        @include StandartShadow();
+    }
+
+    &:hover {
+        background-color: $color-light;
+        color: $color-dark;
+    }
 }

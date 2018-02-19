@@ -24,7 +24,9 @@ namespace WebSiteWithCMS
             //          "~/Scripts/respond.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/cms").Include(
-                      "~/Scripts/cms.js"));
+                      "~/Scripts/file-operations.js",
+                      "~/Scripts/cms.js"
+                      ));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/css/app.css",

@@ -9,6 +9,7 @@ namespace WebSiteWithCMS.Models
     {
         public DOMElements() { }
         public List<Element> Elements { get; set; }
+        public List<Image> Images { get; set; }
     }
 
     public class Element
@@ -18,5 +19,15 @@ namespace WebSiteWithCMS.Models
         public string pageid { get; set; }
         public string id { get; set; }
         public string content { get; set; }
+    }
+
+    public class Image
+    {
+        public Image() { }
+
+        public string pageid { get; set; }
+        public string id { get; set; }
+        public string originalUrl { get; set; }
+        public string updatedFileName { get; set; }
     }
 }
