@@ -275,10 +275,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/10/2013 17:28:38</publishTime>
     </File>
     <File Include="bin/WebSiteWithCMS.dll">
-      <publishTime>02/19/2018 18:14:46</publishTime>
+      <publishTime>02/19/2018 20:53:41</publishTime>
     </File>
     <File Include="bin/WebSiteWithCMS.pdb">
       <publishTime>02/19/2018 18:14:46</publishTime>
+    </File>
+    <File Include="Controllers/CMSController.cs">
+      <publishTime>02/19/2018 20:53:27</publishTime>
     </File>
     <File Include="css/app.css">
       <publishTime>02/14/2018 16:06:44</publishTime>
@@ -404,7 +407,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/07/2018 18:12:06</publishTime>
     </File>
     <File Include="Scripts/cms.js">
-      <publishTime>02/19/2018 18:12:06</publishTime>
+      <publishTime>02/19/2018 21:00:45</publishTime>
     </File>
     <File Include="Scripts/file-operations.js">
       <publishTime>02/16/2018 09:58:16</publishTime>

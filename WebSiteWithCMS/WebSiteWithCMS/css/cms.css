@@ -79,6 +79,11 @@ body {
       text-align: right;
       top: 0; }
 
+/*.u-link-disabled {
+    pointer-events: none;
+    background-color: $color-grey-dark;
+    color: $color-white;
+}*/
 .designtoolbar {
   height: 5vh;
   padding: 2.5rem;
@@ -106,10 +111,12 @@ body {
           color: #9055A2;
           background-color: #FFFFFF;
           border-radius: 1rem;
-          box-shadow: #555555 3px 3px; }
+          box-shadow: #555555 3px 3px;
+          transition: all .5s; }
         .designtoolbar__list__item__link:hover {
           background-color: #9055A2;
-          color: #FFFFFF; }
+          color: #FFFFFF;
+          box-shadow: #555555 6px 6px; }
   .designtoolbar__message {
     color: #FFFFFF;
     padding: 1rem;
@@ -142,8 +149,10 @@ body {
         color: #9055A2;
         background-color: #FFFFFF;
         border-radius: 1rem;
-        box-shadow: #555555 3px 3px; }
+        box-shadow: #555555 3px 3px;
+        transition: all .5s; }
       .designtoolbar__message-box__link:hover {
         background-color: #9055A2;
-        color: #FFFFFF; }
+        color: #FFFFFF;
+        box-shadow: #555555 6px 6px; }
 

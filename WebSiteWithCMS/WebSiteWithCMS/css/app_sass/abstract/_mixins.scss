@@ -28,6 +28,10 @@
     box-shadow: $color-primary 3px 3px;
 }
 
+@mixin LargeShadow () {
+    box-shadow: $color-primary 6px 6px;
+}
+
 @mixin StandartButton() {
     &:link,
     &:visited {
@@ -38,10 +42,12 @@
         background-color: $color-dark;
         border-radius: 1rem;
         @include StandartShadow();
+        transition: all .5s;
     }
 
     &:hover {
         background-color: $color-light;
         color: $color-dark;
+        @include LargeShadow();
     }
 }

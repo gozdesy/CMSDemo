@@ -30,7 +30,8 @@ namespace WebSiteWithCMS
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/css/app.css",
-                      "~/css/cms.css"
+                      "~/css/cms.css",
+                      "~/css/font/flaticon.css"
                       ));
 
             //"~/css/bootstrap.css",

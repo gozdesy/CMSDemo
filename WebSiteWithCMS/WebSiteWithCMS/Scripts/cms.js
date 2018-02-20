@@ -37,6 +37,13 @@
     var Components = [];
 
     return {
+        ChangeExists: function () {
+            if (Data.Elements.length > 0 ||
+                Data.Images.length > 0 ||
+                imageFiles.length > 0) return true;
+            else return false;
+        },
+
         Clear: function () {
             Data.Elements = [];
             Data.Images = [];
@@ -205,6 +212,16 @@ var ControllerLayer = (function () {
 
         var NoButton = document.getElementById(UserInterfaceLayer.GetDomIds().messageBoxNoButton);
         if (NoButton) NoButton.addEventListener("click", hideMessage);
+
+        window.addEventListener("scroll", scroll);
+    }
+
+    var scrollToTopFlag = false;
+    function scroll(e) {
+        if (scrollToTopFlag) {
+            UserInterfaceLayer.ScrollToTop();
+            scrollToTopFlag = false;
+        }
     }
 
     function addToComponents(parentid, parentElement) {
@@ -256,6 +273,8 @@ var ControllerLayer = (function () {
 
         //Switch menu from display to design
         UserInterfaceLayer.SwitchMenu();
+        UserInterfaceLayer.ScrollToTop();
+        scrollToTopFlag = true;
     }
 
     function previewImage(e) {
@@ -267,19 +286,53 @@ var ControllerLayer = (function () {
         var extension = "." + name.substr(dotIndex + 1, name.length - dotIndex);
         var pageid = UserInterfaceLayer.GetPageId();
         var updatedFileName = "img-" + pageid + "-" + preview.id + "-" + Date.now() + extension;
-        
-        DataLayer.writeUpdatedImage(pageid, preview.id, preview.style.backgroundImage, updatedFileName, input.files[0]);
 
-        FileOperations.ReadFileAsDataURL(input, function (reader) { // reader => FileReader
-            preview.style.backgroundImage = "url('" + reader.target.result + "')";
-        });
+        if (FileValidation(input.files[0])) {
+            DataLayer.writeUpdatedImage(pageid, preview.id, preview.style.backgroundImage, updatedFileName, input.files[0]);
 
-        var buttonUndo = document.getElementById(DataLayer.getComponentElementId(preview.id, UserInterfaceLayer.GetDomIds().edit_button_template__link_undo));
-        buttonUndo.style["display"] = "inline-block";
+            FileOperations.ReadFileAsDataURL(input, function (reader) { // reader => FileReader
+                preview.style.backgroundImage = "url('" + reader.target.result + "')";
+            });
+
+            var buttonUndo = document.getElementById(DataLayer.getComponentElementId(preview.id, UserInterfaceLayer.GetDomIds().edit_button_template__link_undo));
+            buttonUndo.style["display"] = "inline-block";
+        }
+    }
+
+    function FileValidation(file) {
+        var name = file.name;
+        var dotIndex = name.indexOf('.');
+        var extension = name.substr(dotIndex + 1, name.length - dotIndex);
+
+        var message = "Please pick valid files for the web site.";
+        var valid = true;
+
+        if (extension != "jpg" && extension != "jpeg" && extension != "png" &&
+            extension != "JPG" && extension != "JPEG" && extension != "PNG") {
+            message += " Upload image files with .jpg, .jpeg, .png extensions.";
+            valid = false;
+        }
+
+        if (file.size > 307200) {
+            message += " Upload files smaller than 300 KB.";
+            valid = false;
+        }
+
+        if (!valid) {
+            window.alert(message);
+            return false;
+        }
+
+        return true;
     }
 
     function switchToDisplayMode() {
-        UserInterfaceLayer.SwitchMessageBox();
+        if (DataLayer.ChangeExists()) {
+            UserInterfaceLayer.SwitchMessageBox();
+        }
+        else {
+            reloadPage();
+        }
     }
 
     function reloadPage() {
@@ -295,12 +348,20 @@ var ControllerLayer = (function () {
     }
 
     var save = function () {
+
+        ////----------------------------------Save'e basınca işlem bitene kadar disabled olması----------------------------------
+        //var saveButton = document.getElementById(UserInterfaceLayer.GetDomIds().saveButton);
+        //saveButton.classList.toggle("u-link-disabled");
+        ////---------------------------------------------------------------------------------------------------------------------
+
         var dataJSON = DataLayer.getDataJSON();
         var xhttp = new XMLHttpRequest();
 
         //Send Text Content & Image File Names
         xhttp.onreadystatechange = function () {
-            document.getElementById(UserInterfaceLayer.GetDomIds().message).innerHTML = this.status + "-" + this.responseText;
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById(UserInterfaceLayer.GetDomIds().message).innerHTML = this.responseText;
+            }
         };
         xhttp.open("POST", "../CMS/UpdateData", true);
         xhttp.setRequestHeader("Content-type", "application/json");
@@ -319,7 +380,10 @@ var ControllerLayer = (function () {
         }
 
         xhttp.onreadystatechange = function () {
-            document.getElementById(UserInterfaceLayer.GetDomIds().message).innerHTML = this.status + "-" + this.responseText;
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById(UserInterfaceLayer.GetDomIds().message).innerHTML += " " + this.responseText;
+                //saveButton.classList.toggle("u-link-disabled");
+            }
         };
         xhttp.open("POST", "../CMS/UpdateImages", true);
         xhttp.send(filedata);
@@ -455,7 +519,7 @@ var UserInterfaceLayer = (function () {
             }
         },
 
-        SwitchMessageBox: function () {
+        SwitchMessageBox: function () { 
             var MessageBox = document.getElementById(DomIds.messageBox);
             MessageBox.classList.toggle(classNames.Hide);
         },
@@ -466,6 +530,11 @@ var UserInterfaceLayer = (function () {
 
         GetPageId: function () {
             return PageId;
+        },
+
+        ScrollToTop: function () {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
         }
     };
 })();

@@ -73,10 +73,10 @@ namespace WebSiteWithCMS.Controllers
                     string jsonString = Newtonsoft.Json.JsonConvert.SerializeObject(domElements);
                     System.IO.File.WriteAllText(fileName, jsonString);
 
-                    return Content("Saved successfully.");
+                    return Content("-Text content saved successfully.");
                 }
 
-                else { return Content("Changes can not be detected."); }
+                else { return Content("-Text changes can not be detected."); }
             }
             catch (Exception ex)
             {
@@ -88,13 +88,16 @@ namespace WebSiteWithCMS.Controllers
         [HttpPost]
         public ActionResult UpdateImages()
         {
+            string result = "";
             try
             {
                 if (Request.Files.Count > 0)
                 {
+                    result += " -File Count: " + Request.Files.Count.ToString();
                     foreach (string file in Request.Files)
                     {
                         var fileContent = Request.Files[file];
+                        result += " -File Content Length " + fileContent.ContentLength.ToString();
                         if (fileContent != null && fileContent.ContentLength > 0)
                         {
                             // get a stream 
@@ -106,6 +109,8 @@ namespace WebSiteWithCMS.Controllers
                             if (!Directory.Exists(path)) Directory.CreateDirectory(path);
                             path += "/" + fileName;
 
+                            result += " -Path: " + path;
+
                             using (var fileStream = System.IO.File.Create(path))
                             {
                                 stream.CopyTo(fileStream);
@@ -113,9 +118,10 @@ namespace WebSiteWithCMS.Controllers
                         }
                     }
 
-                    return Content("Saved successfully.");
+                    return Content("-Images saved successfully.");
+                    //return Content(result + " -Files saved successfully.");
                 }
-                else { return Content("Changes can not be detected."); }
+                else { return Content("-Image changes can not be detected."); }
 
                 ////Stream input = this.Request.InputStream;
                 ////using (StreamReader streamReader = new StreamReader(input))

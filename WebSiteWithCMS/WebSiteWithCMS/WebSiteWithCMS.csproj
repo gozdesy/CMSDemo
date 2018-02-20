@@ -212,7 +212,14 @@
     <Content Include="css\app.min.css">
       <DependentUpon>app.css</DependentUpon>
     </Content>
+    <Content Include="css\font\Flaticon.eot" />
+    <Content Include="css\font\Flaticon.ttf" />
+    <Content Include="css\font\Flaticon.woff" />
+    <Content Include="css\font\_flaticon.scss" />
     <None Include="css\app_sass\components\_demo-1.scss" />
+    <Content Include="css\font\flaticon.css" />
+    <Content Include="css\font\flaticon.html" />
+    <Content Include="css\font\Flaticon.svg" />
     <Content Include="css\app_sass\main.css">
       <DependentUpon>main.scss</DependentUpon>
     </Content>

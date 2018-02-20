@@ -10,7 +10,8 @@ body {
   box-sizing: border-box;
   font-family: Helvetica, Arial, sans-serif;
   position: relative;
-  min-height: 100vh; }
+  min-height: 100vh;
+  background-color: #222831; }
 
 ::selection {
   color: #FFFFFF;
@@ -45,7 +46,8 @@ body {
         .nav__menu__list__item__link:visited, .nav__menu__list__item__link:link {
           text-decoration: none;
           color: #FFFFFF;
-          padding: 1rem; }
+          padding: 1rem;
+          transition: all .5s; }
         .nav__menu__list__item__link:hover {
           color: #00ADB5; }
   .nav__login {
@@ -67,7 +69,8 @@ body {
 
 .header {
   width: 100%;
-  height: 100vh;
+  height: 90vh;
+  min-height: 90vh;
   position: relative; }
   .header__picture {
     width: 100%;
@@ -92,25 +95,46 @@ body {
       color: #FFFFFF;
       border-radius: 1rem;
       text-align: center;
-      vertical-align: central;
       margin-bottom: 2rem; }
-    .header__container__buttonslist {
+    .header__container__sub__list {
+      display: block;
+      width: 80%;
+      text-align: left;
+      padding: 3rem;
+      list-style: none;
+      margin: auto;
+      margin-bottom: 2rem;
+      background-color: rgba(0, 173, 181, 0.5);
+      color: #FFFFFF;
+      border-radius: 1rem; }
+      .header__container__sub__list li {
+        font-size: 1.6rem;
+        font-weight: 600;
+        padding: 1rem;
+        padding-left: 2rem; }
+    .header__container__sub__buttonslist {
       position: absolute;
       left: 50%;
-      transform: translateX(-50%); }
-      .header__container__buttonslist__item__link {
+      transform: translateX(-50%);
+      list-style: none;
+      display: inline-block;
+      margin: auto;
+      text-align: center !important; }
+      .header__container__sub__buttonslist__item__link {
         display: inline-block; }
-        .header__container__buttonslist__item__link:link, .header__container__buttonslist__item__link:visited {
+        .header__container__sub__buttonslist__item__link:link, .header__container__sub__buttonslist__item__link:visited {
           display: inline-block;
           text-decoration: none;
           padding: .8rem 1.2rem;
           color: #EEEEEE;
           background-color: #00ADB5;
           border-radius: 1rem;
-          box-shadow: #222831 3px 3px; }
-        .header__container__buttonslist__item__link:hover {
+          box-shadow: #222831 3px 3px;
+          transition: all .5s; }
+        .header__container__sub__buttonslist__item__link:hover {
           background-color: #EEEEEE;
-          color: #00ADB5; }
+          color: #00ADB5;
+          box-shadow: #222831 6px 6px; }
 
 .footer {
   position: absolute;
@@ -126,7 +150,14 @@ body {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%); }
+    transform: translate(-50%, -50%);
+    transition: all .5s; }
+    .footer__text:hover, .footer__text:link, .footer__text:active, .footer__text:visited {
+      text-decoration: none;
+      color: #FFFFFF; }
+    .footer__text:hover {
+      font-size: 2rem;
+      color: #00ADB5; }
 
 .demo-1 {
   position: relative;
@@ -134,5 +165,31 @@ body {
 
 .contact {
   width: 100%;
-  height: 100%; }
+  height: 90vh;
+  background-image: linear-gradient(to bottom, #EEEEEE, #00ADB5, #EEEEEE); }
+  .contact__content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #222831; }
+    .contact__content__item {
+      float: left;
+      padding: 1rem 2rem;
+      text-align: center;
+      width: 33.33%;
+      margin: auto; }
+      @media all and (max-width: 600px) {
+        .contact__content__item {
+          width: 100%; } }
+      .contact__content__item__link {
+        display: inline-block; }
+        .contact__content__item__link__icon, .contact__content__item__link__icon:before {
+          color: black !important;
+          font-size: 6rem !important;
+          margin: 0 !important;
+          padding: 0 !important;
+          /*&::before {
+                        color: transparent !important;
+                    }*/ }
 

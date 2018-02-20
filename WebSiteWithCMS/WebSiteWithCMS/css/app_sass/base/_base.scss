@@ -11,8 +11,9 @@ html{
 body {
     box-sizing: border-box;
     font-family: Helvetica, Arial, sans-serif;
-    position:relative;
+    position: relative;
     min-height: 100vh;
+    background-color: $color-primary;
 }
 
 ::selection{
